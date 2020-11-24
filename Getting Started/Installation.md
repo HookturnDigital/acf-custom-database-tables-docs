@@ -1,4 +1,10 @@
-# Enabling ACF JSON
+# Installation & Activation
+
+1. Download the plugin zip file from the [Hookturn website](https://hookturn.io/).
+2. Head to the plugins area of your website – e.g; https://example.com/wp-admin/plugins.php – and upload the file.
+3. Activate the plugin.
+
+## Enabling ACF JSON
 
 Whilst not a requirement, we highly recommend you consider enabling ACF Local JSON before creating any tables. ACF Local JSON improves the performance of ACF and also makes it possible for you to remove ACF’s key references from your core meta tables.
 

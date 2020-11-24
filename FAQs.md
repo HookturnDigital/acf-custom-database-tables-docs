@@ -1,40 +1,4 @@
-## Introduction
-
-[What is this plugin?](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/What%20is%20this%20plugin%209cb96a46f6024338ad7cb2426726ed45.md)
-
-[Why would I use it?](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Why%20would%20I%20use%20it%2043930807096e45b09d869d6f42b3f8b6.md)
-
-[How does it work?](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/How%20does%20it%20work%20a4a57f281122417d94b461037010deff.md)
-
-[Basic requirements](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Basic%20requirements%203682e35f69e84ae4aa1eb7b4ae71bade.md)
-
-[Supported field types](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Supported%20field%20types%20bd09a2e5d20b4bc8869c5b6299a21ac8.md)
-
-## Getting Started
-
-[Installing and activating the plugin](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Installing%20and%20activating%20the%20plugin%209f609610383445ae9bba5554d752a404.md)
-
-[Enabling ACF JSON](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Enabling%20ACF%20JSON%20d11ff80c7fa145d4a5dfcb54032d68bb.md)
-
-[Creating your first table](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Creating%20your%20first%20table%20c1df6906930b43b8a174201623c7399f.md)
-
-## Advanced Usage
-
-[Changing the table definition directory](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Changing%20the%20table%20definition%20directory%208fe99a3924fe42b28e3b2debb88cae9e.md)
-
-[Bypassing data storage in core meta tables](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Bypassing%20data%20storage%20in%20core%20meta%20tables%20d6d44a7399884521ab60586080281928.md)
-
-[Disabling ACF 3rd party filters](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Disabling%20ACF%203rd%20party%20filters%2070df65ec6e0149a3bdd74c96add59643.md)
-
-[Removing support for fields](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Removing%20support%20for%20fields%20af010d1be4994fc4849e56c8ecde20c1.md)
-
-[Disabling fields for a particular table](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Disabling%20fields%20for%20a%20particular%20table%200dedbbfef54a4d3789181875f8dffeaf.md)
-
-[Activating join tables on eligible fields](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Activating%20join%20tables%20on%20eligible%20fields%20cc06693b5ea74e14860c162c1e154f2b.md)
-
-[Activating support for a custom field type](Version%201%200%20618993910d9648ada4eaa64238e7dd7b/Activating%20support%20for%20a%20custom%20field%20type%208703cc33122e4d64a12d9aace970f3a8.md)
-
-## FAQ
+# FAQs
 
 - Does this plugin work with user data?
 
@@ -107,10 +71,3 @@
 - Will existing data be migrated across to custom tables?
 
     We are currently working on a migration tool to handle just this. At present, existing data will remain in the core meta tables which the plugin will fall back to where custom table data does not exist. When you next save the post/object, the data will be saved to the appropriate custom tables.
-
-## Other
-
-- Caveats & Gotchas
-    1. You may face issues with third party systems that rely on WordPress' core table structure (e.g; search plugins, database management plugins, etc.) If you find situations where this is a problem, please let us know so that we can investigate solutions.
-    2. If a table definition does not contain any columns, the table will not be created.
-    3. In cases where ACF JSON was enabled after field groups were created, you will need to save the field group again in order for ACF JSON to create the field group's JSON file. Without the field group's JSON file, data won't be handled correctly.

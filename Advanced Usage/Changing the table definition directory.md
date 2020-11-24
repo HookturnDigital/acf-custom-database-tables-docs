@@ -7,7 +7,7 @@ The plugin will attempt to automatically generate a directory to house all relat
 
 It is possible, however, for you to customise the location and name of this directory using either of the following options:
 
-## **Using a PHP constant**
+## Using a PHP constant
 
 You can define the following PHP constant in your `wp-config.php` file or in a configuration plugin, provided it is defined before the `plugins_loaded` action hook:
 
@@ -15,7 +15,7 @@ You can define the following PHP constant in your `wp-config.php` file or in a
 
 Using this approach is definitive and the directory path specified will not be passed to the filter for override. You may need to create this directory yourself and make sure it is writable. See the diagnostic information available in **Custom Fields > Database Tables > Help** if you are having issues around this.
 
-## **Using a filter**
+## Using a filter
 
 If you prefer, you can use the following filter to modify the JSON directory:
 
