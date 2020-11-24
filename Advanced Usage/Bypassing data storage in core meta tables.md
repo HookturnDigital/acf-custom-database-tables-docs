@@ -23,7 +23,15 @@ If you decide to bypass data storage in core meta tables, it is important you be
 
 To bypass storage of meta values where a custom table is found, use the following filter:
 
-[https://gist.github.com/mishterk/8c9be3f25626de55a9b004e9b7defb28#file-acfcdt-plugin-bypass-values-in-core-meta-tables-php](https://gist.github.com/mishterk/8c9be3f25626de55a9b004e9b7defb28#file-acfcdt-plugin-bypass-values-in-core-meta-tables-php)
+```php
+<?php
+/*
+ * Disables storing of meta data values in core meta tables where a custom 
+ * database table has been defined for fields. Any fields that aren't mapped
+ * to a custom database table will still be stored in the core meta tables. 
+ */
+add_filter( 'acfcdt/settings/store_acf_values_in_core_meta', '__return_false' );
+```
 
 ## How to bypass field key references
 
@@ -31,4 +39,13 @@ To bypass storage of ACF field key references for fields mapped to a custom data
 
 **Note:** you should only do this if you are using ACF JSON. If your field groups aren’t represented in JSON files, you will have problems storing and retrieving data.
 
-[https://gist.github.com/mishterk/8353e16ce3b5384dec988f63cd39e697#file-acfcdt-plugin-bypass-key-references-in-core-meta-tables-php](https://gist.github.com/mishterk/8353e16ce3b5384dec988f63cd39e697#file-acfcdt-plugin-bypass-key-references-in-core-meta-tables-php)
+```php
+<?php
+/*
+ * Disables storing of ACF field key references in core meta tables where a custom 
+ * database table has been defined for fields. Any fields that aren't mapped to a 
+ * custom database table will still have their key references stored in the core 
+ * meta tables. 
+ */
+add_filter( 'acfcdt/settings/store_acf_keys_in_core_meta', '__return_false' );
+```

@@ -11,7 +11,15 @@ It is possible, however, for you to customise the location and name of this dire
 
 You can define the following PHP constant in your `wp-config.php` file or in a configuration plugin, provided it is defined before the `plugins_loaded` action hook:
 
-[https://gist.github.com/mishterk/208594cdcb164e265a21dff0cfa500fb#file-acfcdt-plugin-changing-the-json-directory-by-php-constant-php](https://gist.github.com/mishterk/208594cdcb164e265a21dff0cfa500fb#file-acfcdt-plugin-changing-the-json-directory-by-php-constant-php)
+```php
+<?php
+/*
+ * Changes the ACF Custom Database Tables JSON directory.
+ * This needs to run before the 'plugins_loaded' action hook, so 
+ * you need to put this in a plugin or in your wp-config.php file.
+ */
+define( 'ACFCDT_JSON_DIR', '/full/path/to/my-custom-json-dir' );
+```
 
 Using this approach is definitive and the directory path specified will not be passed to the filter for override. You may need to create this directory yourself and make sure it is writable. See the diagnostic information available in **Custom Fields > Database Tables > Help** if you are having issues around this.
 
@@ -19,6 +27,16 @@ Using this approach is definitive and the directory path specified will not be p
 
 If you prefer, you can use the following filter to modify the JSON directory:
 
-[https://gist.github.com/mishterk/8e30187dec5c98e08b1d60d35159f1f0#file-acfcdt-plugin-changing-the-json-directory-by-filter-php](https://gist.github.com/mishterk/8e30187dec5c98e08b1d60d35159f1f0#file-acfcdt-plugin-changing-the-json-directory-by-filter-php)
+```php
+<?php
+/*
+ * Changes the ACF Custom Database Tables JSON directory.
+ * This needs to run before the 'plugins_loaded' action hook, so 
+ * you need to put this in a plugin.
+ */
+add_filter( 'acfcdt/json_dir', function ( $json_dir ) {
+	return '/full/path/to/my-custom-json-directory';
+} );
+```
 
 Again, this code needs to run before the plugins_loaded action hook fires, so this needs to go in a configuration plugin.
