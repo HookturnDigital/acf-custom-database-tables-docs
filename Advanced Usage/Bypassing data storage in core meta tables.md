@@ -1,9 +1,5 @@
 # Bypassing data storage in core meta tables
 
-In this article:
-
----
-
 By default, the plugin does not bypass storage of metadata to the core meta tables as doing so can create issue with other plugins that are dependent on meta data existing in the core meta tables. 
 
 However, you may configure your site to bypass core tables where data is stored in a custom database table. This is broken down into two parts:
