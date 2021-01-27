@@ -1,5 +1,5 @@
 # Activating join tables on eligible fields
-test
+
 Join tables are available where required for eligible fields and can be activated using filters. The following fields are eligible for join tables:
 
 1. Relationship
