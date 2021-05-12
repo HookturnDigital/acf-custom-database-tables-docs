@@ -53,6 +53,8 @@ add_filter( 'acfcdt/field_creates_join_table', function ( $create_join_table, $f
 
 ## Activation for all eligible fields configured to accept multiple values
 
+**Note:** This approach should only be used when you know the associated field settings are concrete.
+
 If you prefer, you can use the ACF field array options to enable join tables on fields that match specific conditions. For example, you may wish to enable join tables on all eligible fields that accept multiple values:
 
 ```php
@@ -88,5 +90,3 @@ add_filter( 'acfcdt/field_creates_join_table', function ( $create_join_table, $f
 	return $create_join_table;
 }, 10, 3 );
 ```
-
-Note: This approach should only be used when you know field’s settings are concrete.

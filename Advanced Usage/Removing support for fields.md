@@ -22,4 +22,5 @@ add_filter( 'acfcdt/is_supported_field', function ( $is_supported, $field ) {
 
 	return $is_supported;
 }, 10, 2 );
+
 ```

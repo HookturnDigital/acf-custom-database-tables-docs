@@ -20,4 +20,4 @@ add_filter( 'acfcdt/is_supported_field', function ( $is_supported, $field ) {
 }, 10, 2 );
 ```
 
-If you have any issues with the data from a custom field type, please let us know about it so we can analyse how the custom field provides data and account for this in a future update.
+If you have any issues with the data from a custom field type, please let us know, so we can analyse how the custom field provides data and account for this in a future update.
