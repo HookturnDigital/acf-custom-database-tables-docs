@@ -1,8 +1,6 @@
 # ACF Custom Database Tables version 1.1
 
-## What has changed in version 1.1? 
-
-For a detailed summary on notable changes, see [this document](Version%20Updates/What%20has%20changed%20in%20version%201-1.md).
+For a detailed summary on notable changes, see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20in%20version%201-1.md).
 
 ## Getting Started
 - [Introduction](Getting%20Started/Introduction.md)
