@@ -10,7 +10,6 @@ The plugin is an extension for Advanced Custom Fields that makes it possible to 
 - Data storage in core meta tables can be deactivated entirely.
 - Relational fields can form their own tables.
 - Map ACF fields to columns in custom database tables.
-- Detailed documentation and help is built into the plugin.
 - It is also possible (currently through the use of filters) to bypass saving of data to core meta tables which can drastically reduce the size of those tables.
 
 ## The benefits of using custom tables to store your ACF field data
