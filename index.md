@@ -18,13 +18,13 @@ All the settings in the panel can also be controlled using PHP filters. When con
 
 Repeater data can now be saved as encoded data to a single column in a field group's custom database table or, where sub-table creation is enabled, can be stored in separate tables altogether where each repeater row maps to a table row and each sub-field maps to a table column.
 
-For details on this, see the **Advanced Usage > Working with repeater fields** section below.
+**Note:** For details on this, see the **Advanced Usage > Working with repeater fields** section below.
 
 ### Added the ability to control column data types via WordPress filters.
 
 Using filters, it is now possible to override the default data type used when creating/updating table columns in order to better facilitate custom SQL queries and manage a more efficient database. 
 
-For details on this, see the **Advanced Usage > Controlling column data types** section below.
+**Note:** For details on this, see the **Advanced Usage > Controlling column data types** section below.
 
 ### Added the ability to execute custom code via WordPress hooks after each table schema is created/updated in the database.
 
@@ -35,13 +35,13 @@ The ability to run processes right after schema update opens up a number of poss
 - Custom data migration handlers.
 - Table field format modifications that might not be possible due to limitations in WordPress' `dbDelta()` function.
 
-For details on this, see the **Advanced Usage > Running custom actions after a table is updated/created** section below.
+**Note:** For details on this, see the **Advanced Usage > Running custom actions after a table is updated/created** section below.
 
 ### Added the ability to disable/enable data intercepts to and/or from custom database tables.
 
 The ability to disable data intercepts makes it possible to use the plugin to store data in a custom table but still retrieve from core meta tables and also bypass updating custom tables where it might not be desired. 
 
-For details on this, see the **Advanced Usage > Disabling storage/retrieval to/from custom database tables** section below.
+**Note:** For details on this, see the **Advanced Usage > Disabling storage/retrieval to/from custom database tables** section below.
 
 ## Fixed
 
@@ -76,7 +76,7 @@ $value = apply_filters( "acf/update_value", $value, $selector, $field, $value );
 
 In version 1.1, we've had to remove our internal use of this filter as it interfered with our ability to support repeaters. Instead, developers can now use a new filter that we've introduced —`acfcdt/filter_value_before_update` — in order to modify a value before it is stored in a custom table. 
 
-To learn more about this filter, see the **Advanced Usage > Filtering values before insertion** section below.
+**Note:** To learn more about this filter, see the **Advanced Usage > Filtering values before insertion** section below.
 
 In addition to removing the filter, the `acfcdt/settings/allow_acf_update_value_filters` setting has also now been removed as it is no longer relevant.
 
