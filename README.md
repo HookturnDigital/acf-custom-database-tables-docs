@@ -1,4 +1,4 @@
-# ACF Custom Database Tables plugin documentation
+# ACF Custom Database Tables plugin documentation 
 
 This repository is the source documentation for the [ACF Custom Database Tables WordPress plugin](https://hookturn.io/downloads/acf-custom-database-tables/).
 
@@ -7,7 +7,7 @@ The plugin is an extension for Advanced Custom Fields that makes it possible to 
 ## Main features of the plugin
 
 - Easily create custom database tables with our simple UI.
-- Data storage in core meta tables can be deactivated entirely.
+- Data storage in core metatables can be deactivated entirely.
 - Relational fields can form their own tables.
 - Map ACF fields to columns in custom database tables.
 - It is also possible (currently through the use of filters) to bypass saving of data to core meta tables which can drastically reduce the size of those tables.
