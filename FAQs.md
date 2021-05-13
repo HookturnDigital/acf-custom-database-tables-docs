@@ -52,7 +52,7 @@ If you need to do this on a live site, you’ll need to get existing data moved 
 
 ## Can I use complex fields such as repeaters?
 
-Repeater support is currently in beta testing and will ship with version 1.1
+Repeater fields are supported as of version 1.1. See the **Advanced Usage > Working with repeater fields** section for more information.
 
 Support for other complex fields such as groups will ship in a later version. At this time, data from unsupported fields will pass through the plugin to be handled by ACF in the normal fashion.
 
