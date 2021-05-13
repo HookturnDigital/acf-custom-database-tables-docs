@@ -40,29 +40,29 @@ For now, if you need the same field group on multiple objects, you’ll need to 
 
 ### Does this plugin work with taxonomies?
 
-The plugin doesn't currently support the taxonomy form location rule, so field groups used in this context cannot be saved to custom database tables at this time.
+The plugin doesn't currently support the **taxonomy form** location rule, so field groups used in this context cannot be saved to custom database tables at this time.
 
-However, the plugin does support the ACF taxonomy field. The data from this field can be stored either as a serialised JSON string in a single column or it can be configured to create a relational table where each selected term has its own table row.
+However, the plugin does support the ACF **taxonomy field**. The data from this field can be stored either as a serialised JSON string in a single column or it can be configured to create a relational table where each selected term has its own table row.
 
 Taxonomy form location rule support is something we are open to adding should there be a demand for it. If you would like to request this feature, please let us know.
 
 ### What happens when I run the table update process?
 
-The plugin parses all table definition (JSON) files and creates SQL table schema from the contained JSON. It then passes the SQL through WordPress' built-in dbDelta() function, which performs modifications to the database. The plugin also rebuilds the cached table map as part of this process.
+The plugin parses all table definition (JSON) files and creates SQL table schema from the contained JSON. It then passes the SQL through WordPress' built-in `dbDelta()` function, which performs modifications to the database. The plugin also rebuilds the cached table map as part of this process.
 
 This is a non-destructive process. It won’t delete columns or tables, but it will modify them where instructed to do so. You should always take a backup of your database before you run any sort of database schema modification, just to be safe.
 
 ### Will I lose any custom indexes I've set on my tables?
 
-The table create/update process uses WordPress' internal dbDelta() function to process the table schema. dbDelta() does not currently remove indexes, so you shouldn't lost any custom indexes you have manually created on your table.
+The table create/update process uses WordPress' internal `dbDelta()` function to process the table schema. `dbDelta()` does not currently remove indexes, so you shouldn't lost any custom indexes you have manually created on your table.
 
-Important: As with anything that manipulates your data, you should take a full backup before running the procedure in case something does go wrong.
+**Important:** As with anything that manipulates your data, you should take a full backup before running the procedure in case something does go wrong.
 
 ### Will columns be removed from my tables if I've removed them from the field group?
 
-The table create/update process uses WordPress' internal dbDelta() function to process the table schema. dbDelta() does not currently remove columns, so you shouldn't lost any columns that you have removed from your table definition files.
+The table create/update process uses WordPress' internal `dbDelta()` function to process the table schema. `dbDelta()` does not currently remove columns, so you shouldn't lost any columns that you have removed from your table definition files.
 
-Important: As with anything that manipulates your data, you should take a full backup before running the procedure in case something does go wrong.
+**Important:** As with anything that manipulates your data, you should take a full backup before running the procedure in case something does go wrong.
 
 ### What happens if I rename an ACF field?
 
@@ -74,7 +74,7 @@ If you need to do this on a live site, you’ll need to get existing data moved 
 
 ### Can I use complex fields such as repeaters?
 
-Repeater support is currently in beta testing and will ship with version 1.1
+Repeater fields are supported as of version 1.1. See the **Advanced Usage > Working with repeater fields** section for more information.
 
 Support for other complex fields such as groups will ship in a later version. At this time, data from unsupported fields will pass through the plugin to be handled by ACF in the normal fashion.
 
@@ -82,7 +82,7 @@ Support for other complex fields such as groups will ship in a later version. At
 
 The plugin has the potential to make your database activity more efficient by reducing the amount of data you have in your post and user meta tables.
 
-Additionally, the plugin has built in mechanisms that query and cache an entire row of data at a time in WPs object cache. This means that, when you use ACFs API functions – e.g; get_field() and update_field() – in a template file, only the first call to the function will call the database provided all other data in subsequent calls is from the same database table and for the same parent object (post, page, user). There is a slight overhead here, but we are currently working on ways to further improve the efficiency and performance of the plugin.
+Additionally, the plugin has built in mechanisms that query and cache an entire row of data at a time in WPs object cache. This means that, when you use ACFs API functions – e.g; `get_field()` and `update_field()` – in a template file, only the first call to the function will call the database provided all other data in subsequent calls is from the same database table and for the same parent object (post, page, user). There is a slight overhead here, but we are currently working on ways to further improve the efficiency and performance of the plugin.
 
 If using some custom SQL or some other custom search mechanism to search your custom tables, you should be able to yield faster results using well-organised tables than if you were searching the post meta table with lots of data.
 
@@ -93,5 +93,3 @@ We are currently working on tools to help developers query their custom tables. 
 ### Will existing data be migrated across to custom tables?
 
 We are currently working on a migration tool to handle just this. At present, existing data will remain in the core meta tables which the plugin will fall back to where custom table data does not exist. When you next save the post/object, the data will be saved to the appropriate custom tables.
-
-It is possible to run your own migration which loops through posts and updates the necessary fields. We have a boilerplate script which will get you most of the way there: https://gist.github.com/mishterk/e27f20f1f3baef139a2f37977399a229
