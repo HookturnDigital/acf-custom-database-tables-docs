@@ -25,3 +25,7 @@ For a detailed summary on notable changes, see [what has changed in version 1.1]
 
 - [Frequently asked questions](FAQs.md)
 - [Caveats & gotchas](Caveats%20and%20Gotchas.md)
+
+## Third Party Notes & Compatibility
+
+- [WP All Import compatibility](Third%20Party%20Notes/WP%20All%20Import%20compatibility.md)
