@@ -2,7 +2,7 @@
 
 As of version 1.1, it is possible to control the data types of custom database table columns. Controlling the type can be useful in reducing your database size and increasing the efficiency of your queries.
 
-Changing the data types on an existing database can result in data loss where compatibility issues may arise between the new type and the existing data. It is critical you back up your database before implementing any changes.
+It's important to note, due to the way databases work, changing the data types on an existing database may result in data loss where the existing data is not compatible with the new data type. It is critical you back up your database before implementing any changes.
 
 It's also important to understand the data types you wish to use as you could end up losing data on isert into the database where the value isn't supported by the type. e.g; using an `int` type to store strings will result a '0' in your database.
 
@@ -15,37 +15,9 @@ It's also important to understand the data types you wish to use as you could en
 
 Controlling the data types of your custom table columns is a 3-step process:
 
-1. Activate the **column data type override** module – this will enable the necessary PHP filters to define the desired data types in the database schema.
-2. Using the PHP filters made available by the now active module, isolate and modify the data type of the desired fields using hooked PHP functions.
-3. Run the table update process to apply the new data types to the tables.
-
-## How to enable the data type override module
-
-You can either do this in the WordPress admin or via a WordPress filter. It's advisable to use filters whenever possible as these are hard for users to change.
-
-### To activate the module via the WordPress admin:
-
-1. Head to **Custom Fields > Database Tables > Settings**.
-2. In the **Modules** section, check the **Enable column data type override filters** option.
-3. Click **Save Changes**. 
-
-### To activate the module via PHP:
-
-```php
-<?php
-/**
- * Enable the column data type override module to enable the public filters. 
- *
- * Note: this needs to be in place in time for plugin initialisation so you
- * have to put this in a plugin of your own. Considering the nature of this
- * modification, an MU plugin makes good sense here.
- */
-add_filter( 'acfcdt/settings/activate_modules', function ( $modules ) {
-	$modules['column_data_type_override'] = true;
-
-	return $modules;
-} );
-```
+1. Use PHP filters to modify the data type of the desired fields — the callback function/s run **when a field group is saved**.
+1. Save the relevant field group/s. The new data types will appear in the table JSON configuration files.
+1. Run the table update process to apply the new data types to the tables.
 
 ## How to filter column data types
 
