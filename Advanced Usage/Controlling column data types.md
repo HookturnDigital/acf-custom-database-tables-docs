@@ -1,27 +1,36 @@
 # Controlling column data types
 
-As of version 1.1, it is possible to control the data types of custom database table columns. Controlling the type can be useful in reducing your database size and increasing the efficiency of your queries.
+As of version 1.1, it is possible to control the data types of custom database table columns. Controlling the type can
+be useful in reducing your database size and increasing the efficiency of your queries.
 
-It's important to note, due to the way databases work, changing the data types on an existing database may result in data loss where the existing data is not compatible with the new data type. It is critical you back up your database before implementing any changes.
+It's important to note, due to the way databases work, changing the data types on an existing database may result in
+data loss where the existing data is not compatible with the new data type. It is critical you back up your database
+before implementing any changes.
 
-It's also important to understand the data types you wish to use as you could end up losing data on isert into the database where the value isn't supported by the type. e.g; using an `int` type to store strings will result a '0' in your database.
+It's also important to understand the data types you wish to use as you could end up losing data on isert into the
+database where the value isn't supported by the type. e.g; using an `int` type to store strings will result a '0' in
+your database.
 
 ## Some caveats on certain data types
 
-- WordPress' `dbDelta()` function changes `tinytext`, `text`, and `mediumtext` to `longtext` so it is not possible to set these formats using the provided filters. To maintain these formats, it would be necessary to run a custom SQL statement on the table after table creation. e.g; `ALTER TABLE my_table MODIFY COLUMN my_field mediumtext;`
-- Whilst `date` and `datetime` types are fine to use with the `date_picker` field, attempting to use the `year` type on a date picker will break. A workaround for this is to use a normal text field and give that the type `date`.
+- WordPress' `dbDelta()` function changes `tinytext`, `text`, and `mediumtext` to `longtext` so it is not possible to
+  set these formats using the provided filters. To maintain these formats, it would be necessary to run a custom SQL
+  statement on the table after table creation. e.g; `ALTER TABLE my_table MODIFY COLUMN my_field mediumtext;`
+- Whilst `date` and `datetime` types are fine to use with the `date_picker` field, attempting to use the `year` type on
+  a date picker will break. A workaround for this is to use a normal text field and give that the type `date`.
 
 ## A high-level overview of controlling data types
 
 Controlling the data types of your custom table columns is a 3-step process:
 
-1. Use PHP filters to modify the data type of the desired fields — the callback function/s run **when a field group is saved**.
+1. Use PHP filters to modify the data type of the desired fields — the callback function/s run **when a field group is
+   saved**.
 1. Save the relevant field group/s. The new data types will appear in the table JSON configuration files.
 1. Run the table update process to apply the new data types to the tables.
 
 ## How to filter column data types
 
-You have two possible points of control here to filter column data types. One is a generic filter which you could use to 
+You have two possible points of control here to filter column data types. One is a generic filter which you could use to
 evaluate the table and field names from within your hooked callback:
 
 ```php
@@ -62,7 +71,9 @@ function xyz_set_column_data_types( $type, $table_name, $column_name ) {
 }
 ```
 
-The other is a dynamic version of the generic filter that allows you to specify which table and field you wish to modify. This simplifies your callback function at the cost of the ability to evaluate table and field names programmatically:
+The other is a dynamic version of the generic filter that allows you to specify which table and field you wish to
+modify. This simplifies your callback function at the cost of the ability to evaluate table and field names
+programmatically:
 
 ```php
 <?php
