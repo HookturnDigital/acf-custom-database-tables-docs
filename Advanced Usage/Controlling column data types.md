@@ -58,7 +58,6 @@ function xyz_set_column_data_types( $type, $table_name, $column_name ) {
 
 	if ( $table_name === 'my_other_custom_table' ) {
 		switch ( $column_name ) {
-
 			case 'custom_field':
 				return 'varchar(50)';
 
