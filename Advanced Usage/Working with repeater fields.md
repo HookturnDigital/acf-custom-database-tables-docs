@@ -34,7 +34,7 @@ Once repeater field support is enabled, field group updates will factor in the r
 2. In the **Complex Field Support** section, check the **Enable Repeater Support** option
 3. Click **Save Changes**. 
 
-### To enable repeater field support via PHP:
+### To enable repeater field support via PHP (recommended):
 
 ```php
 <?php
@@ -76,4 +76,4 @@ When a repeater field is configured to create a sub table, the current pre-relea
 
 For this reason, if you need to update repeater rows directly via SQL, it is safer to use the `post_id` and `_sort_order` columns.
 
-We're investigating the possibility of making these persistent but be prepared for the possibility that this column may not exist in the final release.
+We'll be investigating ways to make these persistent but for now, it's best not to rely on the `id` column as a permanent identifier for a repeater row. 
