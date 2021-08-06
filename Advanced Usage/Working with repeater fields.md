@@ -31,6 +31,10 @@ storage format is best determined at the beginning of a project or before live d
 If you are in a situation where you need to change the storage format and need to migrate data from one format to
 another, [email us](mailto:support@hookturn.io) for some advice on how to approach the situation.
 
+### Repeater table IDs may change
+
+See [Important note on the `id` field](#important-note-on-the-id-field) for details.
+
 ## How to enable repeater field support
 
 You may enable repeater field support either via the admin settings or via PHP using a WordPress filter.
@@ -53,6 +57,22 @@ add_filter( 'acfcdt/settings/enable_repeater_field_support', '__return_true' );
 ```
 
 ## How to create sub tables for repeater fields
+
+You may opt to enable separate tables for repeater fields. Doing so gives you maximum flexibility and much greater
+performance benefits when it comes to querying data using custom SQL statements.
+
+### Important note on the `id` field
+
+When a repeater field is configured to create a sub table, the current pre-release version creates an auto-incrementing
+field called `id`. Be mindful this ID field **is not persistent** and will potentially change as the row order changes.
+This happens due to the way repeaters are handled in the ACF core as repeater field rows do not intrinsically have their
+own ID.
+
+We'll be investigating ways to make these persistent but for now, it's best not to rely on the `id` column as a
+permanent identifier for a repeater row. If you need permanent IDs it would be wiser to create a custom post type and
+manage entries that way instead of using repeater rows as objects.
+
+### Enabling a sub table for a repeater field
 
 If you would like repeater field data to be stored in a separate database table, you may use the following WordPress
 filter to enable sub-tables:
@@ -80,16 +100,3 @@ function xyz_create_sub_tables( $create_sub_table, $field, $table_name ) {
 	return $create_sub_table;
 }
 ```
-
-#### Important!
-
-When a repeater field is configured to create a sub table, the current pre-release version creates an auto-incrementing
-field called `id`. Be mindful this ID field **is not persistent** and will potentially change as the row order changes.
-This happens due to the way repeaters are handled in the ACF core as repeater rows do not intrinsically have their own
-ID.
-
-For this reason, if you need to update repeater rows directly via SQL, it is safer to use the `post_id`
-and `_sort_order` columns.
-
-We'll be investigating ways to make these persistent but for now, it's best not to rely on the `id` column as a
-permanent identifier for a repeater row. 
