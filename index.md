@@ -1,13 +1,16 @@
 # ACF Custom Database Tables version 1.1
 
-For a detailed summary on notable changes, see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20in%20version%201-1.md).
+For a detailed summary on notable changes,
+see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20in%20version%201-1.md).
 
 ## Getting Started
+
 - [Introduction](Getting%20Started/Introduction.md)
 - [Installing and activating the plugin](Getting%20Started/Installation.md)
 - [Creating your first table](Getting%20Started/Creating%20your%20first%20table.md)
 
 ## Advanced Usage
+
 - [Changing the table definition directory](Advanced%20Usage/Changing%20the%20table%20definition%20directory.md)
 - [Bypassing data storage in core meta tables](Advanced%20Usage/Bypassing%20data%20storage%20in%20core%20meta%20tables.md)
 - [Filtering values before insertion](Advanced%20Usage/Filtering%20values%20before%20insertion.md)
