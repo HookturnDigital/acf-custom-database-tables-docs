@@ -2,7 +2,7 @@
 
 ## What is this plugin?
 
-The **ACF Custom Database Tables** plugin is an extension for the Advanced Custom Fields plugin. The extension makes it possible for developers to generate custom database tables that map to ACF Field Groups where each field represents a column. This approach provides the option to store key entity (post, user, custom post type) metadata as a single row of normalized data.
+The **ACF Custom Database Tables** plugin is an extension for the Advanced Custom Fields plugin. The extension makes it possible for developers to generate custom database tables that map to ACF Field Groups where each field represents a column. This approach provides the option to store key entity (post, user, custom post type) metadata as a single row of normalized data.
 
 Features include:
 
@@ -42,7 +42,7 @@ The basic requirements for the plugin to function are as follows:
 
 Whilst not a requirement, we highly recommend using ACF JSON. Doing so enables you to further reduce the amount of metadata in your core meta tables by disabling ACF field key reference storage.
 
-Enabling ACF JSON is as simple as creating an acf-json directory inside your theme directory. See [https://www.advancedcustomfields.com/resources/local-json/](https://www.advancedcustomfields.com/resources/local-json/) for further information.
+Enabling ACF JSON is as simple as creating an acf-json directory inside your theme directory. See [https://www.advancedcustomfields.com/resources/local-json/](https://www.advancedcustomfields.com/resources/local-json/) for further information.
 
 If you decide to bypass both **values** and **field key references** you **must** have ACF JSON enabled and have all field groups saved in JSON format in order for ACF to work correctly. Without field key references in the database, ACF relies on the ACF JSON field groups to determine field mappings. Without those, data will not be stored correctly. 
 
@@ -58,7 +58,7 @@ The above fields are complex and support for these field types will ship in a fu
 
 Where a field type is unsupported, it will be ignored by the plugin and will be passed back to ACF to be handled as per usual (stored in core metatables).
 
-Layout fields such as **message**, **accordion**, and **tab** are not considered as they do not store data.
+Layout fields such as **message**, **accordion**, and **tab** are not considered as they do not store data.
 
 ### **Custom Field Types**
 
