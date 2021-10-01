@@ -31,7 +31,7 @@ function xyz_filter_value_before_insert( $value, $selector, $field_array ) {
 }
 ```
 
-## Filtering repeater values
+## Filtering repeater field values
 
 It's important to note that the full repeater field's payload isn't passed to to this filter. Instead, each individual
 field withing the repeater is passed through this filter for individual processing as ACF works through the sub field
