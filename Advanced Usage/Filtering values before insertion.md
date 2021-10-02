@@ -65,7 +65,6 @@ function xyz_filter_repeater_value_before_insert( $value, $selector, $field_arra
 		$row_number = $matches[1];
 		$inner_row_number = $matches[2];
 		$value = "Custom value for subfield in row $inner_row_number of repeater field row $row_number";
-
 	}
 
 	return $value;
