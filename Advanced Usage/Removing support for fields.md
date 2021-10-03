@@ -1,6 +1,7 @@
 # Removing support for fields
 
-You can remove fields from the supported field list, if you need to. When doing so, you have the ACF field array to evaluate, so you have a good degree of flexibility:
+You can remove fields from the supported field list, if you need to. When doing so, you have the ACF field array to
+evaluate, so you have a good degree of flexibility:
 
 ```php
 <?php

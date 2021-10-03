@@ -1,6 +1,7 @@
 # Disabling storage or retrieval to and from custom database tables
 
-A collection of action hooks can be fired to disable/enable data intercept handlers when necessary. Once disabled, data will not be intercepted until re-enabled. 
+A collection of action hooks can be fired to disable/enable data intercept handlers when necessary. Once disabled, data
+will not be intercepted until re-enabled.
 
 You may fire these actions once for a global effect should you need to.
 

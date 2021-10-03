@@ -1,23 +1,25 @@
 # Running custom actions after a table has been updated or created
 
-As of version 1.1, it is possible to run custom handlers during the table update process. The ability to run processes right after schema update opens up a number of possibilities including:
+As of version 1.1, it is possible to run custom handlers during the table update process. The ability to run processes
+right after schema update opens up a number of possibilities including:
 
 - Custom index creation.
 - Custom logging/notification.
 - Custom data migration handlers.
-- Table field format modifications that might not be possible due to limitations in WordPress' `dbDelta()` function.
+- Table field format modifications that might not be possible due to limitations in WordPress' `dbDelta()` function.
 
 ## How to enable the after table schema update module
 
-You may enable the module either via the admin settings or via PHP using a WordPress filter. 
+You may enable the module either via the admin settings or via PHP using a WordPress filter.
 
-Once the module is enabled, actions will fire during the table schema update process that support executing custom PHP code.
+Once the module is enabled, actions will fire during the table schema update process that support executing custom PHP
+code.
 
 ### To enable the module via the WordPress admin:
 
-1. Head to **Custom Fields > Database Tables > Settings** 
+1. Head to **Custom Fields > Database Tables > Settings**
 2. In the **Module** section, check the **Enable after table schema update actions** option
-3. Click **Save Changes**. 
+3. Click **Save Changes**.
 
 ### To enable the module via PHP:
 
@@ -42,9 +44,13 @@ function xyz_activate_table_schema_update_module( $modules ) {
 
 ## How to run custom actions after each table has been updated
 
-You may run a callback that is invoked after each individual table has been updated. The callback receives both the `dbDelta()` results up to that point as well as the table name allowing you to carry out tasks on more than one table from the one callback. 
+You may run a callback that is invoked after each individual table has been updated. The callback receives both
+the `dbDelta()` results up to that point as well as the table name allowing you to carry out tasks on more than one
+table from the one callback.
 
-**Note:** It's important to take note that this is actually a filter so that you can append messages to the output in the WordPress admin. This means your callback function must return the first parameter — in this case, `$db_delta_results` — for the plugin to continue functioning correctly.
+**Note:** It's important to take note that this is actually a filter so that you can append messages to the output in
+the WordPress admin. This means your callback function must return the first parameter — in this
+case, `$db_delta_results` — for the plugin to continue functioning correctly.
 
 ```php
 <?php
@@ -65,9 +71,12 @@ function xyz_run_after_each_table_is_updated( $db_delta_results, $table_name ) {
 
 ## How to run a custom action after a specific table has been updated
 
-If you only wish to run an action after a specific table, you may use a dynamic version of the same hook. The hooked callback will only be invoked after the specific table has been created or updated. 
+If you only wish to run an action after a specific table, you may use a dynamic version of the same hook. The hooked
+callback will only be invoked after the specific table has been created or updated.
 
-**Note:** It's important to take note that this is actually a filter so that you can append messages to the output in the WordPress admin. This means your callback function must return the first parameter — in this case, `$db_delta_results` — for the plugin to continue functioning correctly.
+**Note:** It's important to take note that this is actually a filter so that you can append messages to the output in
+the WordPress admin. This means your callback function must return the first parameter — in this
+case, `$db_delta_results` — for the plugin to continue functioning correctly.
 
 ```php
 <?php
@@ -110,9 +119,12 @@ function xyz_run_after_all_tables_updated( $db_delta_results ) {
 
 ## An example of creating a custom index after a table has been created or updated
 
-The following example illustrates how you could utilise this capability to programmatically create table indexes on your custom tables.
+The following example illustrates how you could utilise this capability to programmatically create table indexes on your
+custom tables.
 
-**Note:** It's important to take note that this is actually a filter so that you can append messages to the output in the WordPress admin. This means your callback function must return the first parameter — in this case, `$db_delta_results` — for the plugin to continue functioning correctly.
+**Note:** It's important to take note that this is actually a filter so that you can append messages to the output in
+the WordPress admin. This means your callback function must return the first parameter — in this
+case, `$db_delta_results` — for the plugin to continue functioning correctly.
 
 ```php
 <?php

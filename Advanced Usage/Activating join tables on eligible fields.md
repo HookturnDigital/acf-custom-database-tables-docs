@@ -1,6 +1,7 @@
 # Activating join tables on eligible fields
 
-Join tables are available where required for eligible fields and can be activated using filters. The following fields are eligible for join tables:
+Join tables are available where required for eligible fields and can be activated using filters. The following fields
+are eligible for join tables:
 
 1. Relationship
 2. Post Object
@@ -10,7 +11,8 @@ Join tables are available where required for eligible fields and can be activate
 
 ## Global activation
 
-It is possible to set a global setting that will enable join tables on all eligible fields. We don’t recommend this, as you will have a very large number of database tables, but if you need to, you can use the following:
+It is possible to set a global setting that will enable join tables on all eligible fields. We don’t recommend this, as
+you will have a very large number of database tables, but if you need to, you can use the following:
 
 ```php
 <?php
@@ -55,7 +57,8 @@ add_filter( 'acfcdt/field_creates_join_table', function ( $create_join_table, $f
 
 **Note:** This approach should only be used when you know the associated field settings are concrete.
 
-If you prefer, you can use the ACF field array options to enable join tables on fields that match specific conditions. For example, you may wish to enable join tables on all eligible fields that accept multiple values:
+If you prefer, you can use the ACF field array options to enable join tables on fields that match specific conditions.
+For example, you may wish to enable join tables on all eligible fields that accept multiple values:
 
 ```php
 <?php

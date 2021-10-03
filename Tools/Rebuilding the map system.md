@@ -20,24 +20,24 @@ when it parses all of the `.json` files within the map directory.
 ### When is the map system normally updated?
 
 The `.json` files are created/updated when a field group is saved. Changes to the `.json` files have no immediate effect
-on data routing and do not alter the database in any way. 
+on data routing and do not alter the database in any way.
 
-When the table creation/update process is run in **Custom Fields > Database Tables > Manage Tables**, the cached 
+When the table creation/update process is run in **Custom Fields > Database Tables > Manage Tables**, the cached
 `_table_map.php` file is regenerated. The database is also modified during this process.
 
 ### Why would the map system need to be regenerated?
 
-As new field supports are added to the plugin, there may be the need to regenerate the map system using alternative 
-structures. Changes to this system are only implemented when necessary and will often be driven by the need to keep the 
-map system efficient while supporting complex field structures. 
+As new field supports are added to the plugin, there may be the need to regenerate the map system using alternative
+structures. Changes to this system are only implemented when necessary and will often be driven by the need to keep the
+map system efficient while supporting complex field structures.
 
 ## What happens when the map system rebuild tool is run?
 
 When the map system rebuild tool is run, the plugin looks for all field groups that have a table JSON file on disk. Once
-it determines which field groups to affect, it rebuilds the table JSON file for each file and then finaly rebuilds the 
+it determines which field groups to affect, it rebuilds the table JSON file for each file and then finaly rebuilds the
 `.cache/_table_map.php` file.
 
-The rebuild tool **does not** make any changes to the database in any way. 
+The rebuild tool **does not** make any changes to the database in any way.
 
 ### Does this modify the database?
 

@@ -1,8 +1,10 @@
 # Globally activate sub tables
 
-It is possible to set a global setting that will enable sub tables on all eligible fields. At the time of writing, the only fields eligible for sub tables are repeaters.
+It is possible to set a global setting that will enable sub tables on all eligible fields. At the time of writing, the
+only fields eligible for sub tables are repeaters.
 
-We don’t recommend this as you will have a very large number of database tables but, if you need to, you can use the following:
+We don’t recommend this as you will have a very large number of database tables but, if you need to, you can use the
+following:
 
 ```php
 <?php
