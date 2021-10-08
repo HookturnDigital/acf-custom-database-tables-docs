@@ -9,6 +9,12 @@ see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20i
 - [Installing and activating the plugin](Getting%20Started/Installation.md)
 - [Creating your first table](Getting%20Started/Creating%20your%20first%20table.md)
 
+## References, Guides, & Tutorials
+
+- [Frequently asked questions](FAQs.md)
+- [Caveats & gotchas](Caveats%20and%20Gotchas.md)
+- [Using hyphens in field names](References/Using%20hyphens%20in%20field%20names.md)
+
 ## Advanced Usage
 
 - [Changing the table definition directory](Advanced%20Usage/Changing%20the%20table%20definition%20directory.md)
@@ -25,12 +31,6 @@ see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20i
 - [Disabling storage/retrieval to/from custom database tables](Advanced%20Usage/Disabling%20storage%20or%20retrieval%20to%20and%20from%20custom%20database%20tables.md)
 - [Overriding default field value encode and decode behaviours](Advanced%20Usage/Overriding%20default%20field%20value%20encode%20and%20decode%20behaviours.md)
 - [Preventing deletion of custom table data](Advanced%20Usage/Preventing%20deletion%20of%20custom%20table%20data.md)
-
-## References, Guides, & Tutorials
-
-- [Frequently asked questions](FAQs.md)
-- [Caveats & gotchas](Caveats%20and%20Gotchas.md)
-- [Using hyphens in field names](References/Using%20hyphens%20in%20field%20names.md)
 
 ## Third Party Notes & Compatibility
 
