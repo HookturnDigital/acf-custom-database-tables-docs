@@ -21,7 +21,7 @@ If you decide to bypass data storage in core metatables, it is important you bea
    table data in conjunction with `WP_Query`,
    see [this article.](https://hookturn.io/2019/09/how-to-use-acf-custom-database-tables-data-with-wp_query-objects/)
 
-## How to b**ypass field values**
+## How to bypass field values
 
 ### Targeting specific fields (recommended)
 
