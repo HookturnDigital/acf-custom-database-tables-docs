@@ -43,9 +43,12 @@ The basic process is as follows:
 
 The basic requirements for the plugin to function are as follows:
 
-1. PHP version 5.6 (version 7 is recommended)
-2. WordPress version 4.9
-3. ACF version 5.6.10
+1. PHP version 7.0
+2. WordPress version 5.7
+3. ACF version 5.10
+
+**Note:** the plugin may work on older versions but we do develop for modern versions so it is best to remain updated at
+all times.
 
 ### ACF Local JSON
 
