@@ -1,4 +1,4 @@
-## What has changed in version 1.1?
+# What has changed in version 1.1?
 
 Version 1.1 is a much larger release than expected as the time since releasing version 1.0.5 has been significant,
 allowing the scope to creep on this version. There is a fair bit to observe here, particularly for anyone who is using
