@@ -81,4 +81,6 @@ Layout fields such as **message**, **accordion**, and **tab** are not considered
 ### Custom Field Types
 
 There is some basic support in place for custom field types, but these field types need to be enabled/registered through
-the use of a simple WordPress filter. See the advanced usage section for instructions on how to do this.
+the use of a simple WordPress filter.
+See [activating support for a custom field type](../Advanced%20Usage/Activating%20support%20for%20a%20custom%20field%20type.md)
+for instructions on how to do this.
