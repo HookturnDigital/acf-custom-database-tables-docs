@@ -1,7 +1,7 @@
 # Installation & Activation
 
-1. Download the plugin zip file from the [Hookturn website](https://hookturn.io/).
-2. Head to the **plugins** area of your website – e.g; https://example.com/wp-admin/plugins.php – and upload the file.
+1. Download the plugin zip file from your [Hookturn account page](https://hookturn.io/account).
+2. Head to the **plugins** area of your website – **WP Admin > Plugins > Add New** – and upload the file.
 3. Activate the plugin.
 
 ## Enabling ACF JSON
@@ -20,3 +20,10 @@ for further information.
 
 With ACF JSON enabled, the plugin will store all custom database table definitions inside the `acf-json/database-tables`
 directory.
+
+## Activating complex field support
+
+If you intend to store ACF field values from complex fields (i.e; repeater fields) in custom database tables, you need
+to enable support for these fields.
+See [how to enable repeater field support](../Advanced%20Usage/Working%20with%20repeater%20fields.md#how-to-enable-repeater-field-support)
+.
