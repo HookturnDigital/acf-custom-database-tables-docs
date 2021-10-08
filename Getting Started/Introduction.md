@@ -47,7 +47,7 @@ The basic requirements for the plugin to function are as follows:
 2. WordPress version 4.9
 3. ACF version 5.6.10
 
-### **ACF Local JSON**
+### ACF Local JSON
 
 Whilst not a requirement, we highly recommend using ACF JSON. Doing so enables you to further reduce the amount of
 metadata in your core meta tables by disabling ACF field key reference storage.
@@ -75,7 +75,7 @@ usual (stored in core metatables).
 
 Layout fields such as **message**, **accordion**, and **tab** are not considered as they do not store data.
 
-### **Custom Field Types**
+### Custom Field Types
 
 There is some basic support in place for custom field types, but these field types need to be enabled/registered through
 the use of a simple WordPress filter. See the advanced usage section for instructions on how to do this.

@@ -5,7 +5,7 @@ Table creation/modification is a two part process:
 1. First, we need to generate (or update) the field group’s table definition JSON file.
 2. Then, we need to apply the definition to the database in order to create new tables or modify existing ones.
 
-## **To generate the definition file:**
+## To generate the definition file:
 
 1. Head to the field group you wish to create a table for.
 2. Make sure the field group has one object mapping in its location settings – Either **User Form** or **Post Type**
@@ -19,7 +19,7 @@ Table creation/modification is a two part process:
 6. This will generate your table definition as a JSON file. Details of this will be output in the post updated message
    towards the top of the screen.
 
-## **To apply the definition to the database:**
+## To apply the definition to the database:
 
 1. You can either click on the blue **Manage Database Tables** button in the post update message, or you can head to
    **Custom Fields > Database Tables > Manage Tables**.
