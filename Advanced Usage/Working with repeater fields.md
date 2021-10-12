@@ -15,9 +15,32 @@ create their own tables.
 
 ### Potential API function limitations
 
-Whilst the plugin support ACFs `have_rows()`, `the_row()`, `the_sub_field()`, `get_sub_field()`, `has_sub_field()` for
-displaying repeater data, you may experience issues with some other row-related functions. If you do run into any issues
-here, please let us know.
+Whilst the plugin endeavours to fully support ACF's template API, there is a slim change you may encounter some issues
+in some situation. In regards to supporting repeater fields, we have an extensive number of automated tests that cover
+usage of the following:
+
+- `have_rows()`
+- `the_row()`
+- `get_row()`
+- `the_row_index()`
+- `get_row_index()`
+- `add_row()`
+- `delete_row()`
+- `the_sub_field()`
+- `has_sub_field()`
+- `get_sub_field()`
+- `add_sub_row()`
+- `delete_sub_field()`
+- `delete_sub_row()`
+- `update_row()`
+- `update_sub_field()`
+- `update_sub_row()`
+- `get_sub_field_object()`
+- `get_row_sub_field()`
+- `get_row_sub_value()`
+
+If you do run into any issues here, please let us know via [support@hookturn.io](mailto:support@hookturn.io) so we can
+further improve our deep support of ACF's template API.
 
 ### Changing data storage location of an existing field
 
