@@ -51,7 +51,7 @@ The ability to run processes right after schema update opens up a number of poss
 - Table field format modifications that might not be possible due to limitations in WordPress' `dbDelta()` function.
 
 **Note:** For details on this,
-see [Advanced Usage > Running custom actions after a table is updated/created](../Advanced%20Usage/Running%20custom%20actions%20after%20a%20table%20has%20been%20updated%20or%20created.md)
+see [Advanced Usage > Running custom actions after a table is updated/created](../Advanced%20Usage/Running%20custom%20actions%20after%20a%20table%20is%20updated%20or%20created.md)
 .
 
 ### Added the ability to disable/enable data intercepts to and/or from custom database tables.
