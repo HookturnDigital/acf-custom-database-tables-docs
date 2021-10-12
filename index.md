@@ -27,7 +27,7 @@ see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20i
 - [Controlling column data types](Advanced%20Usage/Controlling%20column%20data%20types.md)
 - [Working with repeater fields](Advanced%20Usage/Working%20with%20repeater%20fields.md)
 - [Globally activate sub tables](Advanced%20Usage/Globally%20activate%20sub%20tables.md)
-- [Running custom actions after a table is updated/created](Advanced%20Usage/Running%20custom%20actions%20after%20a%20table%20has%20been%20updated%20or%20created.md)
+- [Running custom actions after a table is updated/created](Advanced%20Usage/Running%20custom%20actions%20after%20a%20table%20is%20updated%20or%20created.md)
 - [Disabling storage/retrieval to/from custom database tables](Advanced%20Usage/Disabling%20storage%20or%20retrieval%20to%20and%20from%20custom%20database%20tables.md)
 - [Overriding default field value encode and decode behaviours](Advanced%20Usage/Overriding%20default%20field%20value%20encode%20and%20decode%20behaviours.md)
 - [Preventing deletion of custom table data](Advanced%20Usage/Preventing%20deletion%20of%20custom%20table%20data.md)
