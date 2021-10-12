@@ -111,7 +111,7 @@ in [caveats & gotchas](../Caveats%20and%20Gotchas.md).
 ### Enabling a sub table for a repeater field
 
 If you would like repeater field data to be stored in a separate database table, you may use the following WordPress
-filter to enable sub-tables:
+filter to enable a sub-table:
 
 ```php
 <?php
