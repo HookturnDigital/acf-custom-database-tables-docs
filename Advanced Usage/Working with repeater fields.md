@@ -15,10 +15,14 @@ create their own tables.
 
 ### Potential API function limitations
 
-Whilst the plugin endeavours to fully support ACF's template API, there is a slim change you may encounter some issues
-in some situation. In regards to supporting repeater fields, we have an extensive number of automated tests that cover
-usage of the following:
+We strive to fully support ACF's template API and as a result we have an extensive number of automated tests to check
+for continued functionality of the template functions that ACF offers as part of its template API. The following
+functions are all currently covered by our tests:
 
+- `get_field()`
+- `the_field()`
+- `update_field()`
+- `delete_field()`
 - `have_rows()`
 - `the_row()`
 - `get_row()`
@@ -39,8 +43,9 @@ usage of the following:
 - `get_row_sub_field()`
 - `get_row_sub_value()`
 
-If you do run into any issues here, please let us know via [support@hookturn.io](mailto:support@hookturn.io) so we can
-further improve our deep support of ACF's template API.
+Whilst extensive, our tests may not cover all use cases/scenarios so if you happen to find any issues here, please let
+us know via [support@hookturn.io](mailto:support@hookturn.io) so we can further improve our deep support of ACF's
+template API.
 
 ### Changing data storage location of an existing field
 
