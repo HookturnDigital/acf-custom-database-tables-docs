@@ -7,4 +7,7 @@
 3. In cases where ACF JSON was enabled after field groups were created, you will need to save the field group again in
    order for ACF JSON to create the field group's JSON file. Without the field group's JSON file, data won't be handled
    correctly.
-4. The use of hyphens in field names is supported but there are some considerations to be aware of. See [Using hyphens in field names](References/Using%20hyphens%20in%20field%20names.md)
+4. The use of hyphens in field names is supported but there are some considerations to be aware of.
+   See [Using hyphens in field names](References/Using%20hyphens%20in%20field%20names.md)
+5. Fields with the field name `id`, `post_id`, `user_id`, and/or `_sort_order` will result in errors as these are
+   currently hard-coded, internal column names used by the plugin.
