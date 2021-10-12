@@ -70,12 +70,6 @@ You may enable repeater field support either via the admin settings or via PHP u
 Once repeater field support is enabled, field group updates will factor in the repeater fields by either adding new
 columns or sub tables to the custom database table definition files.
 
-### To enable repeater field support via the WordPress admin:
-
-1. Head to **Custom Fields > Database Tables > Settings**
-2. In the **Complex Field Support** section, check the **Enable Repeater Support** option
-3. Click **Save Changes**.
-
 ### To enable repeater field support via PHP (recommended):
 
 ```php
@@ -83,6 +77,12 @@ columns or sub tables to the custom database table definition files.
 // Enable repeater field support. 
 add_filter( 'acfcdt/settings/enable_repeater_field_support', '__return_true' );
 ```
+
+### To enable repeater field support via the WordPress admin:
+
+1. Head to **Custom Fields > Database Tables > Settings**
+2. In the **Complex Field Support** section, check the **Enable Repeater Support** option
+3. Click **Save Changes**.
 
 ## How to create sub tables for repeater fields
 
