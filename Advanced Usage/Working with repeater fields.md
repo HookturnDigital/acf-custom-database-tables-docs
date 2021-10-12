@@ -8,8 +8,8 @@ configure the plugin — using WordPress filters — to create sub-tables for sp
 
 ## A note on nested repeaters
 
-At this stage, nested repeaters will be encoded into the top-level repeater data. Nested repeaters do not currently
-create their own tables.
+At this stage, nested repeaters will be encoded into the top-level repeater data. Nested ACF repeaters are not currently
+eligible for creating their own normalized database tables.
 
 ## Some caveats to be aware of
 
@@ -47,17 +47,12 @@ Whilst extensive, our tests may not cover all use cases/scenarios so if you happ
 us know via [support@hookturn.io](mailto:support@hookturn.io) so we can further improve our deep support of ACF's
 template API.
 
-### Changing data storage location of an existing field
+### Changing data storage format of an existing field
 
-A repeater field can be stored either as an encoded field in a custom table, or as a normalised table of its own. Either
-of these storage options will fallback to core metadata if a value is not in a custom table.
-
-However, if a field's storage option changes — e.g; from 'encoded' to 'sub-tabled' — repeaters with existing data will
-appear to be empty as the plugin does not currently look to an alternative storage format for data. For this reason, the
-storage format is best determined at the beginning of a project or before live data is in play.
-
-If you are in a situation where you need to change the storage format and need to migrate data from one format to
-another, [email us](mailto:support@hookturn.io) for some advice on how to approach the situation.
+If the data structure is changed after a field is live and has been collecting data, existing posts/users may appear to
+be missing data. The data is still in the database but the plugin does not fallback to the previous data structure where
+custom table data is missing. See [Important note on structural changes](#important-note-on-structural-changes) for
+details.
 
 ### Repeater table IDs may change
 
@@ -83,6 +78,41 @@ add_filter( 'acfcdt/settings/enable_repeater_field_support', '__return_true' );
 1. Head to **Custom Fields > Database Tables > Settings**
 2. In the **Complex Field Support** section, check the **Enable Repeater Support** option
 3. Click **Save Changes**.
+
+## Choosing a data structure for repeater fields
+
+By default, when repeater support is enabled for a custom database table, a single column will be created to represent
+the repeater data and all sub field values will be JSON-encoded within that single column.
+
+As an altenative, you may choose to store your repeater data in a normalized table of its own, giving the data a
+structure that is much better suited to both custom SQL queries and analysis. The result of data organised in this
+fashion can be a much faster performing application where complex SQL queries are required.
+
+### Should I just always use normalized tables?
+
+There is no silver bullet and each use case is different so you should use the most appropriate structure for your use
+case. Encoded payloads are easier to manage and can involve less DB queries to access the data, but it is harder and
+less performant to perform SQL queries on this data. On the other hand, normalized database tables are much easier to
+read, query, and analyse but if you have all repeater fields across an application in custom DB tables, you may be
+inadvertently adding unecessary queries and joins whilst also potentially making your database harder to reason about.
+
+Personally, I would think carefully about the nature of a specific repeater field and whether or not I need to perform
+SQL queries directly on the data within it. Only then would I decide to use a normalized table structure for that
+particular repeater field.
+
+### Important note on structural changes
+
+Regardless of whether a repeater field value is encoded or normalized into a table of its own, either of these storage
+options will fallback to core metadata if a value is not in a custom table. However, if a field's storage option changes
+— e.g; from 'encoded' to 'sub-tabled' — repeaters with existing data may appear to be empty as the plugin does not
+currently fall back to the previous structure before finally falling back to core metadata. For this reason, the storage
+format is best determined at the beginning of a project or before live data is in play.
+
+If you are in a situation where you need to change the storage format and need to migrate data from one format to
+another, it would be wise to export all data before making the structural change so you can reimport it after making the
+change. At this time there is no built-in import, export, or migration feature to assist this so you'll need to either
+use a third party plugin or write some custom SQL. We are working on a data migrator which will likely ship in version
+1.2.
 
 ## How to create sub tables for repeater fields
 
@@ -110,8 +140,8 @@ in [caveats & gotchas](../Caveats%20and%20Gotchas.md).
 
 ### Enabling a sub table for a repeater field
 
-If you would like repeater field data to be stored in a separate database table, you may use the following WordPress
-filter to enable a sub-table:
+If you would like repeater field data to be stored in a separate normalized database table, you may use the following
+WordPress filter to enable the sub-table:
 
 ```php
 <?php
@@ -136,3 +166,10 @@ function xyz_create_sub_tables( $create_sub_table, $field, $table_name ) {
 	return $create_sub_table;
 }
 ```
+
+The code is best added to a custom configuration plugin for your project but can also be added to your
+theme's `functions.php` if preferred.
+
+Once the code is in place, the field group must be saved in the WordPress admin in order to affect changes to the table
+JSON definition file. From there, running the table creation/update process from the notification that appears will
+apply the changes to the database. In this case, a new table will be created for the repeater field. 
