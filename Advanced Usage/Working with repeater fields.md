@@ -88,6 +88,9 @@ As an altenative, you may choose to store your repeater data in a normalized tab
 structure that is much better suited to both custom SQL queries and analysis. The result of data organised in this
 fashion can be a much faster performing application where complex SQL queries are required.
 
+See [How to create sub tables for repeater fields](#how-to-create-sub-tables-for-repeater-fields) for details on how to
+do this.
+
 ### Should I just always use normalized tables?
 
 There is no silver bullet and each use case is different so you should use the most appropriate structure for your use
