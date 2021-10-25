@@ -17,5 +17,5 @@
    for details.
 7. If choosing to store repeater field data in normalised tables, the `id` field is currently subject to change as a
    repeater's rows are reordered or removed.
-   See [working with repeater fields](Advanced%20Usage/Controlling%20column%20data%20types.md#important-note-on-the-id-field)
+   See [working with repeater fields](Advanced%20Usage/Working%20with%20repeater%20fields.md#important-note-on-the-id-field)
    for more details.
