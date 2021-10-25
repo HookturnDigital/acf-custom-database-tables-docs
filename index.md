@@ -7,6 +7,7 @@ see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20i
 
 - [Introduction](Getting%20Started/Introduction.md)
 - [Installing and activating the plugin](Getting%20Started/Installation.md)
+- [Configuration via code](References/Configuration%20via%20code.md)
 - [Creating your first table](Getting%20Started/Creating%20your%20first%20table.md)
 
 ## References, Guides, & Tutorials

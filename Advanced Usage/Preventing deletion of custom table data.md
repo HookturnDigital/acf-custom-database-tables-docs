@@ -10,12 +10,6 @@ the [wp_delete_post() function](https://developer.wordpress.org/reference/functi
 Be mindful that the deleted post IDs will remain in the custom database tables if you decide to allow the data to
 persist after the post is deleted. Be sure to consider this in any custom SQL queries you may write.
 
-## Where to place these code snippets
-
-Whilst it's possible to place these snippets within your theme's `functions.php` file, it is a safer bet to place them
-in a configuration plugin. An [MU plugin](https://wordpress.org/support/article/must-use-plugins/) is ideal as it isn't
-at risk of accidental deactivation.
-
 ## How to prevent deletion of ACF field values from custom database tables
 
 You may prevent data removal through the use of either the `acfcdt/delete_all_custom_table_data`

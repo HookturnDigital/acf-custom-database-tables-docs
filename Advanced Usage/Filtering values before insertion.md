@@ -6,12 +6,6 @@ tables. The filter runs after ACF's core `acf/update_value` filter and does not 
 across both storage mediums, consider using the
 [acf/update_value](https://www.advancedcustomfields.com/resources/acf-update_value/) filter instead.
 
-## Where to place these code snippets
-
-Whilst it's possible to place these snippets within your theme's `functions.php` file, it is a safer bet to place them
-in a configuration plugin. An [MU plugin](https://wordpress.org/support/article/must-use-plugins/) is ideal as it isn't
-at risk of accidental deactivation.
-
 ```php
 <?php
 add_filter('acfcdt/filter_value_before_update', 'xyz_filter_value_before_insert', 10, 3);
