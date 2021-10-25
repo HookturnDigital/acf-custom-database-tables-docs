@@ -12,3 +12,10 @@
    See [Using hyphens in field names](References/Using%20hyphens%20in%20field%20names.md)
 5. Fields with the field name `id`, `post_id`, `user_id`, and/or `_sort_order` will result in errors as these are
    currently hard-coded, internal column names used by the plugin.
+6. Some SQL data types are modified by WordPress and won't persist through to the SQL schema. Where necessary, a
+   workaround is needed. See [controlling column data types](Advanced%20Usage/Controlling%20column%20data%20types.md)
+   for details.
+7. If choosing to store repeater field data in normalised tables, the `id` field is currently subject to change as a
+   repeater's rows are reordered or removed.
+   See [working with repeater fields](Advanced%20Usage/Controlling%20column%20data%20types.md#important-note-on-the-id-field)
+   for more details.
