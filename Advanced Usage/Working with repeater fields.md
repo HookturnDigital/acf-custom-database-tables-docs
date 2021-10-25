@@ -124,11 +124,11 @@ performance benefits when it comes to querying data using custom SQL statements.
 
 ### Important note on the `id` field
 
-When a repeater field is configured to create a sub table, the current pre-release version creates an auto-incrementing
-field called `id`. Be mindful this ID field **is not persistent to the repeater data row** and will potentially change
-as the row order changes or as rows are removed from the repeater. This happens due to the way repeaters are handled in
-ACFs core as repeater field rows do not intrinsically have their own ID but instead rely on row indexes which change
-with the number and order of rows.
+When a repeater field is configured to create a sub table, the plugin creates an auto-incrementing field called `id`. Be
+mindful this ID field **is not persistent to the repeater data row** and will potentially change as the row order
+changes or as rows are removed from the repeater. This happens due to the way repeaters are handled in ACFs core as
+repeater field rows do not intrinsically have their own ID but instead rely on row indexes which change with the number
+and order of rows.
 
 The `id` field currently exists on all tables created by the plugin as it is built into the underlying data model
 system. We'll be investigating ways to make these persistent for the use case of repeater fields but for now, it's best
