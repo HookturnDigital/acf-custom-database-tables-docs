@@ -1,6 +1,7 @@
 # Caveats & Gotchas
 
-1. You may face issues with third party systems that rely on WordPress' core table structure (e.g; search plugins,
+1. If choosing to [bypass core meta tables](Advanced%20Usage/Bypassing%20data%20storage%20in%20core%20meta%20tables.md),
+   you may face issues with third party systems that rely on WordPress' core table structure (e.g; search plugins,
    database management plugins, etc.) If you find situations where this is a problem, please let us know so that we can
    investigate solutions.
 2. If a table definition does not contain any columns, the table will not be created.
