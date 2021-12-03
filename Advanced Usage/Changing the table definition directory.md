@@ -28,6 +28,7 @@ defined before the `plugins_loaded` action hook:
  * Changes the ACF Custom Database Tables JSON directory.
  * This needs to run before the 'plugins_loaded' action hook, so 
  * you need to put this in a plugin or in your wp-config.php file.
+ * Trailing slash is optional and will be removed.
  */
 define( 'ACFCDT_JSON_DIR', '/full/path/to/my-custom-json-dir' );
 ```
