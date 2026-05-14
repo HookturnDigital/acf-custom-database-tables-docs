@@ -1,4 +1,4 @@
-# WP All Import plugin compatibility
+# Admin Columns Pro compatibility
 
 After some simple tests, we found that the Admin Columns Pro plugin can be used in conjunction with data handled by ACF
 Custom Database Tables with some caveats to be aware of.
