@@ -15,6 +15,7 @@ see [what has changed in version 1.1](Version%20Updates/What%20has%20changed%20i
 - [Frequently asked questions](FAQs.md)
 - [Caveats & gotchas](Caveats%20and%20Gotchas.md)
 - [Using hyphens in field names](References/Using%20hyphens%20in%20field%20names.md)
+- [Licence server TLS verification](References/Licence%20server%20TLS%20verification.md)
 
 ## Advanced Usage
 
