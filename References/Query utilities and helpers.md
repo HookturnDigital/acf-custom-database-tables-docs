@@ -44,11 +44,11 @@ $results = $wpdb->get_results( $wpdb->prepare(
 
 Always run user-supplied values through `$wpdb->prepare()`. The table name is whatever you configured in the field group's **Custom Table Name** setting, prefixed with `$wpdb->prefix`.
 
-## Fetching a list of posts with `post__in` (recommended)
+## Fetching a list of posts with `post__in`
 
-When you want a list of *posts* — not raw column values — filtered or sorted by data held in a custom table, the most dependable pattern is two steps. First, run a fast SQL query against the custom table to collect the IDs of the matching posts. Then hand that array of IDs to `WP_Query` through the `post__in` argument. You get back fully-formed `WP_Post` objects and the standard template loop, while the filtering happens in a single indexed query against your custom table rather than a stack of meta queries.
+When you want a list of *posts* — not raw column values — filtered or sorted by data held in a custom table, one option is a two-step pattern. First, run a SQL query against the custom table to collect the IDs of the matching posts. Then hand that array of IDs to `WP_Query` through the `post__in` argument. You get back fully-formed `WP_Post` objects and the standard template loop, while the filtering happens in a query against your custom table rather than a stack of meta queries.
 
-This is the approach we reach for most often, and it usually outperforms the equivalent meta query by a wide margin. On large datasets the difference is significant — a lookup that took several seconds as a stacked meta query can drop to around a second.
+The appeal of this pattern is that it bolts onto an ordinary `WP_Query` without you having to modify the query's joins or where-clauses, which makes it the most approachable of the SQL-backed options. It also hands you direct control over pagination: because you set the `LIMIT` on the ID query, the array passed to `post__in` stays small no matter how many rows match, and you can fetch a total with a cheap `COUNT(*)` on the custom table. Measured against an equivalent `meta_query` on `wp_postmeta`, it's dramatically faster — a lookup that took several seconds as a stacked meta query can drop to around a second. Against the join approach below it's a closer call; see [Which approach should I use?](#which-approach-should-i-use) at the end of this page.
 
 ```php
 <?php
@@ -134,6 +134,16 @@ $events = new WP_Query( [
 The custom query var (`xyz_join_events` in the example) gates the join so the filters only apply to the queries that need them. Without that guard, every `WP_Query` on the site would pick up the join.
 
 For a working snippet covering joins, where clauses, and ordering against a custom table, see [this Gist](https://gist.github.com/mishterk/04a20b60addddb3878db17531d40a6fe).
+
+## Which approach should I use?
+
+The `post__in` pattern and the `WP_Query` join read from the same indexed custom table, so for most result sets the difference is small and either is a sound choice. When it does start to matter, a few things decide it:
+
+- **Indexing matters more than the choice between the two.** The plugin indexes only the `id` and `post_id` columns, so any column you filter or sort on should have its own index — you add these yourself, and they persist across table updates. Without the right index neither approach performs well; with it, both do.
+- **For large, filtered-and-sorted lists, a single join tends to be faster.** It's one round trip and one query plan, and the join back to `wp_posts` runs against the unique `post_id` key. The `post__in` pattern has to carry the full set of matching IDs back into PHP and re-embed them as an `IN (…)` list, which becomes the bottleneck once you're matching thousands of rows at once.
+- **For paginated lists, `post__in` stays cheap and simple.** Putting the `LIMIT` on the ID query keeps the `IN (…)` list small, and a `COUNT(*)` on the custom table gives you the total without `WP_Query`'s default `SQL_CALC_FOUND_ROWS` running across the whole joined set.
+
+If you're unsure, pick whichever reads more clearly for your case, and reach for `EXPLAIN` if a specific query turns into a hot spot.
 
 ## When you're new to custom SQL
 
