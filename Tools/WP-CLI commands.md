@@ -199,8 +199,10 @@ Use the export and import pair to move definitions between environments when you
 isn't in your repository (see
 [Deploying table changes](Deploying%20table%20changes.md)), or to restore a backup.
 
-Every definition is checked before anything is written. If any of them can't be used, nothing is written
-and the command exits `2`.
+Every definition is checked before anything is written. Definitions are held to what the plugin generates
+itself: table, column and key names made of letters, numbers, `$` and underscores, the usual column
+formats, a post or user relationship, and no semicolons or backticks anywhere. If any definition can't be
+used, nothing is written and the command exits `2`.
 
 Each environment generates its own definition file names, so the same table often has a different file
 name on staging and production. When a table in the import is already defined in the definitions
