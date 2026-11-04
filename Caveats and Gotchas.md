@@ -19,3 +19,6 @@
    repeater's rows are reordered or removed.
    See [working with repeater fields](Advanced%20Usage/Working%20with%20repeater%20fields.md#important-note-on-the-id-field)
    for more details.
+8. ACF blocks are not supported. ACF stores block field values in the post content rather than in meta, and the plugin
+   only maps post and user contexts, so block fields never resolve to a custom table. Fields in a block keep working as
+   normal; they just aren't stored in your custom tables.

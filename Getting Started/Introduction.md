@@ -43,9 +43,9 @@ The basic process is as follows:
 
 The basic requirements for the plugin to function are as follows:
 
-1. PHP version 7.0
-2. WordPress version 5.7
-3. ACF version 5.10
+1. PHP version 7.4
+2. WordPress version 6.2
+3. ACF version 6.0
 
 **Note:** the plugin may work on older versions but we do develop for modern versions so it is best to remain updated at
 all times.
