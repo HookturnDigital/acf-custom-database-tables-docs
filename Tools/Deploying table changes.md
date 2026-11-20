@@ -117,6 +117,8 @@ The admin **Rebuild Map System** tool regenerates the definitions for the field 
 default, those that already have a definition file and a table) and rebuilds the map in the background. `wp acfcdt map rebuild` only rebuilds the table map cache from the definition
 files that are already there, and it runs straight away. The command-line equivalent of the admin tool is
 `wp acfcdt definitions generate` followed by `wp acfcdt map rebuild`.
+If a table in the new map doesn't exist yet, `map rebuild` refuses and leaves the cache as it was. Run
+`wp acfcdt tables update` instead: it creates the tables and rebuilds the cache.
 
 ## Extra output in your logs
 

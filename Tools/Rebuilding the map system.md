@@ -31,6 +31,25 @@ As new field supports are added to the plugin, there may be the need to regenera
 structures. Changes to this system are only implemented when necessary and will often be driven by the need to keep the
 map system efficient while supporting complex field structures.
 
+## When the table map cache is missing or damaged
+
+If the `.cache/_table_map.php` file is missing, empty, unreadable or can't be loaded, the plugin can't route any field
+to a custom table. ACF then reads and saves every field through post meta, and the values in your custom tables aren't
+shown.
+
+When this happens, administrators see a notice at the top of every admin screen. The notice says what is wrong. Where
+a rebuild can fix it, the notice has a **Rebuild map** button. The button rebuilds only the cached `_table_map.php`
+file from the `.json` files already on disk. It doesn't regenerate the `.json` files and doesn't touch the database.
+
+The notice can't be dismissed. It goes away by itself once the map loads again.
+
+**Rebuild map** refuses to run when a table in the map doesn't exist in the database yet. This is normal straight after
+you add a table definition to a field group: run the table creation/update process in **Custom Fields > Database
+Tables > Manage Tables** first. That creates the tables and builds the map.
+
+The table creation/update process also checks every table and column after it runs. If one is missing, it shows an
+error and leaves the cached map as it was, so the site keeps using a map that matches the tables that exist.
+
 ## What happens when the map system rebuild tool is run?
 
 When the map system rebuild tool is run, the plugin looks for all field groups that have a table JSON file on disk. Once

@@ -104,6 +104,10 @@ folder resolved somewhere else for the user running the command (see
 [Deploying table changes](Deploying%20table%20changes.md)), and an empty map would send every field back
 to core meta.
 
+It also refuses when a table in the new map doesn't exist in the database yet, and leaves the cache as
+it was. A map for a missing table would send ACF saves to a table that isn't there. Run
+`wp acfcdt tables update` first: it creates the tables and rebuilds the cache.
+
 `map rebuild` doesn't regenerate definitions from your field groups, and it doesn't create or alter
 tables. That makes it narrower than the admin **Rebuild Map System** tool. To regenerate definitions,
 run `wp acfcdt definitions generate` first. To apply them to the database, run `wp acfcdt tables update`,
