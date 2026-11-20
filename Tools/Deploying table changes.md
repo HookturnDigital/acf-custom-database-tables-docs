@@ -20,7 +20,8 @@ sudo -u www-data -H wp acfcdt map status --path=/path/to/wordpress
 folder. See [Changing the table definition directory](../Advanced%20Usage/Changing%20the%20table%20definition%20directory.md).
 
 **Check the paths.** `wp acfcdt map status` shows the definitions folder and cache file the plugin is
-using. The commands that make changes print them too.
+using. `tables update` and `map rebuild` print both when they succeed. `definitions import` and
+`definitions generate` print the files they wrote.
 
 **Take a database backup** before `wp acfcdt tables update`.
 
@@ -63,7 +64,9 @@ wp acfcdt tables update --yes
 ```
 
 The import matches tables by name, so it updates the right file on the receiving site even when the two
-sites gave it different file names. The same pair works as a backup and restore:
+sites gave it different file names. If the exporting site has only one definition file, the export has no
+file name in it. Then pass `--file-name=<file-name>.json` to the import for a table the receiving site
+doesn't have yet. The same pair works as a backup and restore:
 
 ```bash
 wp acfcdt definitions export > definitions-backup.json
@@ -85,6 +88,7 @@ first failure.
 
 ## Licensing new environments
 
+<!-- UNVERIFIED: the licence store decides this; the plugin always sends the stored key (verification pass, 2026-11-20). -->
 A new environment, such as a staging copy or a short-lived CI site, gets no plugin updates until its
 licence is activated. Activate it from the command line:
 
@@ -96,6 +100,7 @@ Piping the key in with `-` keeps it out of the server's process list and your sh
 as an argument (`wp acfcdt license activate <key>`) also works, but other users on a shared server can see
 it while the command runs.
 
+<!-- UNVERIFIED: activation counting is the licence store's behaviour, not checkable in the plugin (verification pass, 2026-11-20). -->
 Each activation uses one of your licence's site activations. When you tear an environment down,
 deactivate it first:
 
@@ -108,8 +113,8 @@ stay in use until you remove it from your account.
 
 ## `map rebuild` and the Rebuild Map System
 
-The admin **Rebuild Map System** tool regenerates every definition from your field groups and rebuilds
-the map in the background. `wp acfcdt map rebuild` only rebuilds the table map cache from the definition
+The admin **Rebuild Map System** tool regenerates the definitions for the field groups you select (by
+default, those that already have a definition file and a table) and rebuilds the map in the background. `wp acfcdt map rebuild` only rebuilds the table map cache from the definition
 files that are already there, and it runs straight away. The command-line equivalent of the admin tool is
 `wp acfcdt definitions generate` followed by `wp acfcdt map rebuild`.
 

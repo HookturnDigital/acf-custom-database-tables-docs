@@ -238,6 +238,7 @@ wp acfcdt license activate                                    # the key already 
 printf '%s' "$ACFCDT_LICENSE_KEY" | wp acfcdt license activate -   # read the key from STDIN
 ```
 
+<!-- UNVERIFIED: activation counting is the licence store's behaviour, not checkable in the plugin (verification pass, 2026-11-20). -->
 When you pass a key, it's stored on the site first, replacing any existing key. Each activation uses one
 of your licence's site activations.
 
