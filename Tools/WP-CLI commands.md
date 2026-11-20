@@ -182,6 +182,9 @@ same files. A field group with no stored definition file name is skipped with a 
 would otherwise create another definition file for the same table. Saving the field group once in the
 admin stores a file name.
 
+A field group is also skipped when another field group already uses its table name or its definition
+file name. These are the same checks the admin makes when you save a field group.
+
 Exits `0` when every definition was written, `1` when any field group failed or was skipped, and `2`
 when a key you passed isn't a field group with a custom table enabled. Nothing is written on exit `2`.
 
