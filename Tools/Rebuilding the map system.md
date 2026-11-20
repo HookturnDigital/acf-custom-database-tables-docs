@@ -44,8 +44,8 @@ file from the `.json` files already on disk. It doesn't regenerate the `.json` f
 The notice can't be dismissed. It goes away by itself once the map loads again.
 
 **Rebuild map** refuses to run when a table in the map doesn't exist in the database yet. This is normal straight after
-you add a table definition to a field group: run the table creation/update process in **Custom Fields > Database
-Tables > Manage Tables** first. That creates the tables and builds the map.
+you add a table definition to a field group: run the table creation/update process in **ACF > Database Tables >
+Manage Tables** first (**Custom Fields** before ACF 6.1). That creates the tables and builds the map.
 
 The table creation/update process also checks every table and column after it runs. If one is missing, it shows an
 error and leaves the cached map as it was, so the site keeps using a map that matches the tables that exist.
